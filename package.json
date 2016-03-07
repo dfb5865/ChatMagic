@@ -2,27 +2,57 @@
   "name": "chat-magic",
   "version": "0.0.1",
   "description": "A Zillow HackWeek project to integrate a chatbot into the Real Estate App that answers questions for Beths and routes highly-qualified leads to Premier Agent Concierge",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean": "rimraf ./src/server/public/assets/*",
+    "build": "npm run clean && npm run build:webpack",
+    "build:webpack": "NODE_ENV=production webpack --config webpack.config.prod.js",
+    "start": "NODE_ENV=development npm run clean && npm run dev",
+    "dev": "BABEL_ENV=development NODE_ENV=development node devServer.js",
+    "lint": "eslint web/src"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dfb5865/ChatMagic.git"
   },
-  "keywords": [
-    "Zillow"
-  ],
   "author": "Dave Banan",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/dfb5865/ChatMagic/issues"
   },
   "homepage": "https://github.com/dfb5865/ChatMagic#readme",
+  "devDependencies": {
+      "babel-eslint": "^3.1.9",
+      "babel-preset-react-hmre": "^1.0.1",
+      "body-parser": "^1.14.2",
+      "eslint": "^1.3.1",
+      "eslint-plugin-react": "^2.3.0",
+      "nodemon": "^1.9.1",
+      "request": "^2.67.0",
+      "express": "^4.13.3",
+      "webpack-dev-middleware": "^1.4.0",
+      "webpack-hot-middleware": "^2.6.0"
+  },
   "dependencies": {
-    "babel-preset-react": "^6.5.0",
-    "react": "^0.14.7",
-    "react-dom": "^0.14.7",
-    "twilio": "^2.9.0"
+    "axios": "^0.9.1",
+    "babel-core": "^6.3.26",
+    "babel-loader": "^6.2.0",
+    "babel-plugin-lodash": "^1.1.0",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "babel-preset-stage-0": "^6.3.13",
+    "jsx-control-statements": "^3.0.0",
+    "koa": "^1.2.0",
+    "file-loader": "^0.8.5",
+    "koa-bodyparser": "^2.0.1",
+    "koa-logger": "^1.3.0",
+    "koa-mount": "^1.3.0",
+    "koa-router": "^5.4.0",
+    "koa-static": "^2.0.0",
+    "lodash": "^3.10.1",
+    "react": "0.14.7",
+    "react-dom": "0.14.7",
+    "react-router": "^2.0.0",
+    "rimraf": "^2.4.3",
+    "webpack": "^1.12.9"
   }
 }
