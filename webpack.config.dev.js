@@ -9,13 +9,13 @@ module.exports = {
   entry: {
     web:[
       'webpack-hot-middleware/client',
-      './web/index'
+      './src/frontend/index'
     ]
   },
   output: {
     path: path.join(__dirname, 'server', 'public', 'assets'),
     filename: 'bundle.[name].js',
-    publicPath: '/assets/'
+    publicPath: '.src/server/public/assets/'
   },
   plugins: [
     new webpack.DefinePlugin({

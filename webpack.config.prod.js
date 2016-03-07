@@ -13,7 +13,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'server', 'public', 'assets'),
     filename: 'bundle.[name].js',
-    publicPath: '/assets/'
+    publicPath: '.src/server/public/assets/'
   },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),

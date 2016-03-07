@@ -6,7 +6,6 @@ var logger = require('koa-logger');
 var koaBody = require('koa-bodyparser');
 var mount = require('koa-mount');
 var api = require('./controllers/api');
-var pub = require('./controllers/pub');
 var ENV = process.env.NODE_ENV;
 var PORT = 4000;
 var app = koa();
@@ -16,7 +15,6 @@ app.use(koaBody());
 
 app.use(mount('/assets', serve(path.join(__dirname, "public/assets"))));
 app.use(mount('/api', api.routes()));
-app.use(mount('/', pub.routes()));
 
 app.listen(PORT, function () {
   console.log("HTTP server listening on", PORT);
