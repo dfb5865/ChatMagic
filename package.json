@@ -20,6 +20,9 @@
   },
   "homepage": "https://github.com/dfb5865/ChatMagic#readme",
   "dependencies": {
+    "babel-preset-react": "^6.5.0",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7",
     "twilio": "^2.9.0"
   }
 }
