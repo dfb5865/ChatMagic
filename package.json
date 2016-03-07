@@ -1,0 +1,22 @@
+{
+  "name": "chat-magic",
+  "version": "0.0.1",
+  "description": "A Zillow HackWeek project to integrate a chatbot into the Real Estate App that answers questions for Beths and routes highly-qualified leads to Premier Agent Concierge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dfb5865/ChatMagic.git"
+  },
+  "keywords": [
+    "Zillow"
+  ],
+  "author": "Dave Banan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dfb5865/ChatMagic/issues"
+  },
+  "homepage": "https://github.com/dfb5865/ChatMagic#readme"
+}
