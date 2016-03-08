@@ -10,7 +10,7 @@ module.exports = {
     web:'./src/frontend/index'
   },
   output: {
-    path: "./src/server/public/assets/",
+    path: path.join(__dirname, 'src', 'server', 'public', 'assets'),
     filename: 'bundle.[name].js',
     publicPath: '/assets/'
   },
