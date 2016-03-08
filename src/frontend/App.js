@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import Hello from './components/dumb/Hello';
 
+import 'normalize.css'
+import './scss/main.scss';
 
 export default class App extends Component {
         render() {

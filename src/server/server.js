@@ -14,7 +14,6 @@ app.use(logger());
 app.use(koaBody());
 
 app.use(mount('/assets', serve(path.join(__dirname, "public/assets"))));
-app.use(mount('/css', serve(path.join(__dirname, "public/css"))));
 app.use(mount('/api', api.routes()));
 
 app.listen(PORT, function () {
