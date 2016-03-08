@@ -1,7 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
 
-
 module.exports = {
   target: 'web',
   devtool: 'source-map',
@@ -13,7 +12,7 @@ module.exports = {
   output: {
     path: "./src/server/public/assets/",
     filename: 'bundle.[name].js',
-    publicPath: '/public/assets/'
+    publicPath: '/assets/'
   },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),

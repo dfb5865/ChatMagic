@@ -13,7 +13,7 @@ var app = koa();
 app.use(logger());
 app.use(koaBody());
 
-app.use(mount('/public/assets', serve(path.join(__dirname, "public/assets"))));
+app.use(mount('/assets', serve(path.join(__dirname, "public/assets"))));
 app.use(mount('/api', api.routes()));
 
 app.listen(PORT, function () {

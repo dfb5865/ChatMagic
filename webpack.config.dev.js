@@ -13,9 +13,9 @@ module.exports = {
     ]
   },
   output: {
-    path: "./src/server/public/assets/"
+    path: "./src/server/public/assets/",
     filename: 'bundle.[name].js',
-    publicPath: '/public/assets/'
+    publicPath: '/assets/'
   },
   plugins: [
     new webpack.DefinePlugin({
