@@ -1,0 +1,30 @@
+@function color($title, $map, $key) {
+  @if map-has-key($map, $key) {
+    @return map-get($map, $key);
+  }
+
+  @warn "Unknown key #{$key} in #{$title}.";
+  @return null;
+}
+
+// primary colors
+$primary: (
+  dark: #2c3e50,
+  gray: #95a5a6,
+  darkGray: #7f8c8d,
+  lightGray: #bdc3c7,
+  lighterGray: #ecf0f1,
+  black: #333333,
+  white: #fefefe,
+  turquoise: #1abc9c,
+  green: #2ecc71,
+  blue: #3498db,
+  purple: #9b59b6,
+  yellow: #f1c40f,
+  orange: #e67e22,
+  red: #e74c3c
+);
+
+@function primary($key) {
+  @return color(primary, $primary, $key);
+}

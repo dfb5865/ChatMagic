@@ -1,5 +1,14 @@
 var path = require('path');
 var webpack = require('webpack');
+var autoprefixer = require('autoprefixer');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+var sassLoaders = [
+  'style-loader',
+  'css-loader',
+  'postcss-loader',
+  'sass-loader',
+];
 
 module.exports = {
   target: 'web',
@@ -24,16 +33,38 @@ module.exports = {
       }
     }),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoErrorsPlugin(),
+    new ExtractTextPlugin('bundle.[name].css')
   ],
+  resolve: {
+    extensions: ['', '.js', '.json']
+  },
   module: {
-    loaders: [
+    loaders:
+    [
       {
         test: /\.js$/,
-        loaders: ['babel']
+        loaders: ['babel'],
+        include: path.join(__dirname, 'src', 'frontend')
       },
-      { test: /\.(jpe?g|png|gif|svg|woff|woff2)$/i, loader: 'file-loader' },  
+      { test: /\.(jpe?g|png|gif|svg|woff|woff2)$/i,
+        loader: 'file-loader'
+      },
+      {
+        test: /\.s?css$/,
+        loader: sassLoaders.join('!')
+      },
+      {
+        include: /\.json$/,
+        loader: 'json-loader'
+      }
     ]
+  },
+  sassLoader: {
+    includePaths: [path.join(__dirname, 'src', 'frontend', 'scss')]
+  },
+  postcss: function () {
+    return [autoprefixer({ browsers: ['last 2 Chrome versions'] })]
   },
   externals: {
     'react': 'React',
