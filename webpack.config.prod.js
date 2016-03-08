@@ -11,9 +11,9 @@ module.exports = {
     web:'./src/frontend/index'
   },
   output: {
-    path: path.join(__dirname, 'server', 'public', 'assets'),
+    path: "./src/server/public/assets/",
     filename: 'bundle.[name].js',
-    publicPath: '.src/server/public/assets/'
+    publicPath: '/public/assets/'
   },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),

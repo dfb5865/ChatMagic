@@ -13,9 +13,9 @@ module.exports = {
     ]
   },
   output: {
-    path: path.join(__dirname, 'server', 'public', 'assets'),
+    path: "./src/server/public/assets/"
     filename: 'bundle.[name].js',
-    publicPath: '.src/server/public/assets/'
+    publicPath: '/public/assets/'
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -30,8 +30,7 @@ module.exports = {
     loaders: [
       {
         test: /\.js$/,
-        loaders: ['babel'],
-        include: path.join(__dirname, 'frontend')
+        loaders: ['babel']
       },
       { test: /\.(jpe?g|png|gif|svg|woff|woff2)$/i, loader: 'file-loader' },  
     ]
