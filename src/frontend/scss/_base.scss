@@ -27,6 +27,7 @@ body,
 .App__container {
   display: flex;
   flex-direction: column;
+  max-width: 480px;
 }
 
 .App__body {
