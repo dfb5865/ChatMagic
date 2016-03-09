@@ -3,13 +3,5 @@ import React, {Component} from 'react';
 import './ResponseBubble.scss';
 
 export default class ResponseBubble extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  componentDidMount() {
-  }
-
-  render() {
-  }
+  render() { return(<div className="bubble-r">{this.props.message}</div>) }
 }

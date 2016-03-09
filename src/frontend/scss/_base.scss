@@ -17,8 +17,7 @@ body {
 html,
 body,
 #root,
-.App__container,
-.App__body {
+.App__container {
   width: 100%;
   height: 100%;
 }
@@ -27,12 +26,5 @@ body,
   display: flex;
   flex-direction: column;
   max-width: 480px;
-}
-
-.App__body {
-  flex: 1;
-  max-width: 375px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
+  margin: 20px;
 }

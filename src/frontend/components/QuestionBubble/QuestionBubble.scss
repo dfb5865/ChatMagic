@@ -1,1 +1,37 @@
 @import "colors";
+
+.icon {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+
+    background-color: primary(white);
+    border: 1px solid #3498db;
+
+    float: left;
+
+    color: #3498db;
+    text-align: center;
+    line-height: 40px;
+}
+
+.bubble-q {
+    border-radius: 8px;
+    background-color: primary(white);
+    box-shadow: #B3B3B3 0px 1px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -webkit-box-shadow: #B3B3B3 0px 1px;
+    -moz-box-shadow: #B3B3B3 0px 1px;
+
+    max-width: 260px;
+    margin-left: 10px;
+    float: left;
+}
+
+.bubble-container {
+    width: 480px;
+    float: left;
+}
+
+

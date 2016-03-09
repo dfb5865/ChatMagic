@@ -1,1 +1,19 @@
 @import "colors";
+
+.bubble-r {
+    border-radius: 8px;
+    background-color: primary(blue);
+    box-shadow: #B3B3B3 0px 1px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -webkit-box-shadow: #B3B3B3 0px 1px;
+    -moz-box-shadow: #B3B3B3 0px 1px;
+
+    max-width: 260px;
+    float: right;
+    color: primary(white);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 40px;
+    padding: 15px;
+}

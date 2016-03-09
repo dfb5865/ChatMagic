@@ -14,7 +14,7 @@ const FourOhFour = () => {
 
 export default (
   <Route path='/' component={App}>
-    <IndexRoute component={ChatBubble}/>
+    <IndexRoute component={App}/>
     <Route path="*" component={FourOhFour}/>
   </Route>
 );

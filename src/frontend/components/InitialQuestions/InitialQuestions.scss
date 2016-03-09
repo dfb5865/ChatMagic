@@ -1,0 +1,20 @@
+@import "colors";
+
+.bubble{
+  color: primary(dark);
+  font-size: 15px;
+}
+
+.bubble-text {
+    padding: 15px;
+}
+
+.question-container {
+    border-top: 1px solid #ecf0f1;
+    margin-left: 0px !important;
+}
+
+.question-content {
+    padding: 15px;
+    color: primary(blue);
+}

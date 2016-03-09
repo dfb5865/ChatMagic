@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 
-import './InitialQuestionBubble.scss';
+import './InitialQuestions.scss';
 
 var initialQuestions = [
     {"questionId" : 1, "questionText": "When can I tour it?"},
@@ -17,7 +17,7 @@ var initialState = {
                     property: {}
                     };
 
-export default class InitialQuestionBubble extends Component {
+export default class InitialQuestions extends Component {
     constructor(props) {
         super(props);
         this.state = initialState;
@@ -59,18 +59,18 @@ export default class InitialQuestionBubble extends Component {
 
     render() {
         self = this;
-        return  (
-        <div className='bubble-container'>
-          <div className='icon'></div>        
+        return  (     
           <div className='bubble'>
             <div className='bubble-text'>
+                Hi, Beth! What questions do you have about this home?
+            </div>
+            <div className='bubble-content'>
                 {this.state.initialQuestions.map(function(question){
-                    return <div key={question.questionId} className="question" onClick={self.questionSelected.bind(self,question.questionId)}>{question.questionText}</div>;
+                    return  <div key={question.questionId} className="question-container" onClick={self.questionSelected.bind(self,question.questionId)}>
+                                <div className="question-content">{question.questionText}</div>
+                            </div>;
                 })}
             </div>
-            <div className='bubble-footer'>
-            </div>
-          </div>
           </div>
         );
     }
