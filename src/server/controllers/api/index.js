@@ -28,9 +28,11 @@ api.get('/initialResponse/:questionId', function* () {
 api.post('/dateSelected/', function* () {
     console.log(this.params);
 
+    var daysAvailable = "ASAP";
+
     var response = {
-        "questionId": this.params.questionId,
-        "questionResponse": "I'm interested in touring this home."
+        "chatBubbleType" : "requestToCall",
+        "questionResponse": daysAvailable + " works best for me."
     }
 
     this.body = response;

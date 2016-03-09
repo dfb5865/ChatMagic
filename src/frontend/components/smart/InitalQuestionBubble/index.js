@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 
-import './ChatBubble.scss';
+import './InitialQuestionBubble.scss';
 
 var initialQuestions = [
     {"questionId" : 1, "questionText": "When can I tour it?"},
@@ -13,15 +13,11 @@ var initialQuestions = [
 var initialState = {
                     initialQuestions: initialQuestions,
                     zpid: 1234567,
-                    bethEmail: null,
-                    bethPhone: null,
-                    bethName: null,
                     selectedQuestion: null,
-                    questionResponse: null,
                     property: {}
                     };
 
-export default class ChatBubble extends Component {
+export default class InitialQuestionBubble extends Component {
     constructor(props) {
         super(props);
         this.state = initialState;
@@ -51,8 +47,9 @@ export default class ChatBubble extends Component {
                     console.log("Failed to load question response data");
                 }
                 else{
-                    self.setState((state) => ({ questionResponse: response.data.questionResponse }));
-                    console.log(self.state);
+                    var responseText = response.data.questionResponse;
+                    var nextChatBubbleType = ""
+                    
                 }
             })
             .catch(function (response, err) {
