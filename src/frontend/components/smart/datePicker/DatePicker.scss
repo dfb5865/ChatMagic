@@ -1,0 +1,28 @@
+@import "colors";
+
+.DatePicker {
+  // max-width: 250px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+}
+
+.ButtonUnselected {
+  width: 100px;
+  height: 30px;
+  background-color: primary(lighterGray);
+  border-radius: 3px;
+}
+
+.DatePicker .CenteredContent {
+  text-align: center;
+}
+
+.DatePicker .UncenteredContent {
+  text-align: left;
+}
+
+.DatePicker .PaddedButton {
+  padding-left: 20px;
+  padding-right: 20px;
+}
