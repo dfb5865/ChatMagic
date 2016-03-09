@@ -1,0 +1,13 @@
+@import "colors";
+
+.Specialbutton {
+  width: 100px;
+  height: 30px;
+  background-color: primary(lighterGray);
+  border-radius: 3px;
+}
+
+.Specialbutton.active {
+  background-color: primary(blue);
+  outline: 0;
+}
