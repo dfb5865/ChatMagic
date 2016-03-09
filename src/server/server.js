@@ -18,5 +18,5 @@ app.use(mount('/api', api.routes()));
 
 app.listen(PORT, function () {
   console.log("HTTP server listening on", PORT);
-  console.log("Static files served on", path.join(__dirname, "public/assets"))
+  console.log("Static files served on", path.join(__dirname, "public/assets"));
 });

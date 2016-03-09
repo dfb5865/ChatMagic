@@ -12,12 +12,28 @@ var api = Router();
 /*******************
  * Routes
  *******************/
-api
+api.get('/property/:zpid', function* () {
+    this.body = "Getting property data for zpid: " + this.params.zpid;
+});
 
-.get('/test', function* () {
-  this.body = {
-    hello: 'world'
-  };
+api.get('/initialResponse/:questionId', function* () {
+    var response = {
+        "questionId": this.params.questionId,
+        "questionResponse": "I'm interested in touring this home."
+    }
+
+    this.body = response;
+});
+
+api.post('/dateSelected/', function* () {
+    console.log(this.params);
+
+    var response = {
+        "questionId": this.params.questionId,
+        "questionResponse": "I'm interested in touring this home."
+    }
+
+    this.body = response;
 });
 
 
