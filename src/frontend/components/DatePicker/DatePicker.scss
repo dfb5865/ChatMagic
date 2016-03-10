@@ -1,28 +1,39 @@
 @import "colors";
 
-.DatePicker {
-  // max-width: 250px;
-  padding-left: 20px;
-  padding-right: 20px;
+.date-picker {
   text-align: center;
+  font-size: 15px;
 }
 
-.ButtonUnselected {
-  width: 100px;
-  height: 30px;
-  background-color: primary(lighterGray);
-  border-radius: 3px;
+.bubble-text {
+  text-align: left !important;
+  padding: 15px;
 }
 
-.DatePicker .CenteredContent {
-  text-align: center;
+.float-left {
+  float: left;
+  padding-left: 40px;
+  padding-bottom: 10px;
 }
 
-.DatePicker .UncenteredContent {
-  text-align: left;
+.float-right {
+  float: right;
+  padding-right: 40px;
+  padding-bottom: 10px;
 }
 
-.DatePicker .PaddedButton {
-  padding-left: 20px;
-  padding-right: 20px;
+.separator {
+  padding-top: 10px;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+.container {
+  width: inherit;
+  height: auto;
+  overflow: hidden;
+}
+
+.done-text {
+  text-align: center !important;
+  color: primary(blue);
 }

@@ -1,12 +1,33 @@
 @import "colors";
 
-.AskToCall {
-  color: primary(dark);
-  font-size: 15px;
-  text-align: center;
+.bubble-text {
+  text-align: left !important;
+  padding: 15px;
 }
 
-.StyleAnchorTags {
-  width: 50px;
-  color: primary(zsgBlue);
+.ask-to-call {
+  font-size: 15px;
+}
+
+.separator-ask-to-call {
+  border-top: 1px solid #ecf0f1;
+}
+
+.float-left-yes {
+  width: 50%;
+  float: left;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align: center;
+  border-right: 1px solid #ecf0f1;
+  color: primary(blue);
+}
+
+.float-right-no {
+  width: 50%;
+  float: right;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align: center;
+  color: primary(blue);
 }

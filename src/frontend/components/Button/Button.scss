@@ -1,13 +1,18 @@
 @import "colors";
 
 .Specialbutton {
-  width: 100px;
-  height: 30px;
-  background-color: primary(lighterGray);
+  width: 80px;
+  height: 40px;
+  background-color: primary(white);
   border-radius: 3px;
+  border: 1px solid #ecf0f1;
+  font-size: 15px;
+  color: primary(lightGray);
 }
 
 .Specialbutton.active {
   background-color: primary(blue);
   outline: 0;
+  border: none;
+  color: primary(white);
 }

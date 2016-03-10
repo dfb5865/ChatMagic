@@ -5,22 +5,21 @@ import './AskToCall.scss';
 export default class AskToCall extends Component {
   render() {
     return  (
-      <div className='AskToCall'>
-        <div>
+      <div className='ask-to-call'>
+        <div className='bubble-text'>
           Excellent. We&#39;d love to give you a call to finalize some details.
           <br/>
           <br/>
           Would that be okay?
-          <hr/>
         </div>
+        <div className='separator-ask-to-call'></div>
+
         <div>
-          <div>
-            <div>
-              <a  onClick={this.handleYesClick.bind(this)} className='StyleAnchorTags'>Yes</a>
-            </div>
-            <div>
-              <a  onClick={this.handleNoClick.bind(this)} className='StyleAnchorTags'>No</a>
-            </div>
+          <div className='float-left-yes' onClick={this.handleYesClick.bind(this)}>
+            Yes
+          </div>
+          <div className='float-right-no' onClick={this.handleNoClick.bind(this)}>
+            No
           </div>
         </div>
       </div>
