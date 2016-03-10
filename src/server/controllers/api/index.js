@@ -19,7 +19,8 @@ api.get('/property/:zpid', function* () {
 api.get('/initialResponse/:questionId', function* () {
     var response = {
         "questionId": this.params.questionId,
-        "questionResponse": "I'm interested in touring this home."
+        "questionResponse": "I'm interested in touring this home.",
+        "nextQuestionBubbleType": "DatePicker"
     }
 
     this.body = response;

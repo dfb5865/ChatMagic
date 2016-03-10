@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+import { render } from 'react-dom';
+import ResponseBubble from '../ResponseBubble';
+import QuestionBubble from '../QuestionBubble';
 import axios from 'axios';
 
 import './InitialQuestions.scss';
@@ -48,12 +51,14 @@ export default class InitialQuestions extends Component {
                 }
                 else{
                     var responseText = response.data.questionResponse;
-                    var nextChatBubbleType = ""
+                    var nextQuestionBubbleType = response.data.nextQuestionBubbleType;
+
+                    render(<ResponseBubble message={responseText}/>, document.getElementById('root'));
                     
                 }
             })
             .catch(function (response, err) {
-                console.log("Bad Response from server when loading question response data");
+                console.log(err);
             });
     }
 
