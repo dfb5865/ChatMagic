@@ -1,1 +1,32 @@
 @import "colors";
+
+.ask-for-name-and-number {
+  font-size: 15px;
+}
+
+.bubble-text {
+  text-align: left !important;
+  padding: 15px;
+  color: primary(darkGray);
+}
+
+.div-with-bottom-border {
+  border-bottom: 1px solid #ecf0f1;
+}
+
+.padded-div {
+  padding: 15px;
+}
+
+.ok-text {
+  padding: 15px;
+  text-align: center !important;
+  color: primary(blue);
+}
+
+.input-box-style {
+  float: right;
+  width: 100px;
+  border: 0;
+  color: primary(darkGray);
+}
