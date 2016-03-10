@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import ReactDom from 'react-dom';
 import InitialQuestions from '../InitialQuestions';
 import AskForNameAndNumber from '../AskForNameAndNumber';
 import AskToCall from '../AskToCall';
@@ -14,6 +15,7 @@ export default class QuestionBubble extends Component {
   }
 
   componentDidMount() {
+    ReactDom.findDOMNode(this).scrollIntoView();
   }
 
   render() {

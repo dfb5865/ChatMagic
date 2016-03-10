@@ -3,6 +3,7 @@
  *******************/
 var Router = require('koa-router');
 var koaBody = require('koa-bodyparser');
+var phoneFormatter = require('phone-formatter');
 var api = Router();
 
 /*******************
@@ -53,8 +54,8 @@ api.get('/okayToCall/:trueValue', function* () {
         }
     } else {
         response = {
-            "questionResponse": "No thanks.",
-            "nextQuestionBubbleType": null
+            "questionResponse": "No, I prefer email.",
+            "nextQuestionBubbleType": "AskForEmail"
         }
     }
 
@@ -63,10 +64,22 @@ api.get('/okayToCall/:trueValue', function* () {
 
 api.post('/nameAndNumber/', function* () {
     var name = this.request.body.name;
-    var number = this.request.body.number;
+    var number = phoneFormatter.format(this.request.body.number, "(NNN) NNN-NNNN");
 
     var response = {
         "questionResponse":  "I'm " + name + " and my number is " + number + ".",
+        "nextQuestionBubbleType": "CheckList"
+    }
+
+    this.body = response;
+});
+
+api.post('/nameAndEmail/', function* () {
+    var name = this.request.body.name;
+    var email = this.request.body.email;
+
+    var response = {
+        "questionResponse":  "I'm " + name + " and my email is " + email + ".",
         "nextQuestionBubbleType": "CheckList"
     }
 

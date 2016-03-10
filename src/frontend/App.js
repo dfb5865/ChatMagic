@@ -16,9 +16,7 @@ export default class App extends Component {
         render() {
             return (
                 <div className='App__container'>
-                    <div className="App__body">
-                        {this.state.panels.map((panel) => panel)}
-                    </div>
+                    {this.state.panels.map((panel) => panel)}
                 </div>
             );
         }

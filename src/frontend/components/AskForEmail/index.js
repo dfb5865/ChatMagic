@@ -3,11 +3,11 @@ import ResponseBubble from '../ResponseBubble';
 import QuestionBubble from '../QuestionBubble';
 import axios from 'axios';
 
-import './AskForNameAndNumber.scss';
+import './AskForNameAndEmail.scss';
 
-var initialState = {name: "Name", number: "Phone"};
+var initialState = {name: "Name", email: "Email Address"};
 
-export default class AskForNameAndNumber extends Component {
+export default class AskForNameAndEmail extends Component {
 
     constructor(props) {
         super(props);
@@ -18,16 +18,8 @@ export default class AskForNameAndNumber extends Component {
       this.setState({name: event.target.value});
     }
 
-    handleNumberChange(event) {
-      this.setState({number: event.target.value});
-    }
-
-    clearName(){
-      this.setState({name: ''});
-    }
-
-    clearNumber(){
-      this.setState({number: ''});
+    handleEmailChange(event) {
+      this.setState({email: event.target.value});
     }
 
     render() {
@@ -40,7 +32,7 @@ export default class AskForNameAndNumber extends Component {
             <input className='text-input' type="text" value={this.state.name} onChange={this.handleNameChange.bind(this)} onClick={this.clearName.bind(this)}/>
           </div>
           <div className='div-with-bottom-border padded-div'>
-            <input className='text-input' type="text" value={this.state.number} onChange={this.handleNumberChange.bind(this)} onClick={this.clearNumber.bind(this)}/>
+            <input className='text-input' type="text" value={this.state.email} onChange={this.handleEmailChange.bind(this)} onClick={this.clearEmail.bind(this)}/>
           </div>
           <div className='ok-text' onClick={this.handleOkClick.bind(this)}>OK</div>
         </div>
@@ -49,9 +41,9 @@ export default class AskForNameAndNumber extends Component {
 
     handleOkClick() {
       var name = this.state.name;
-      var number = this.state.number;
+      var email = this.state.email;
 
-      axios.post('/api/nameAndNumber/', {name: name, number: number})
+      axios.post('/api/nameAndEmail/', {name: name, email: email})
       .then((response) => {
           if(!response.data.questionResponse){
               console.log("Failed to load response data");
