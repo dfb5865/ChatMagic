@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+import ResponseBubble from '../ResponseBubble';
+import QuestionBubble from '../QuestionBubble';
+import axios from 'axios';
 
 import './AskToCall.scss';
 
@@ -26,18 +29,42 @@ export default class AskToCall extends Component {
     );
   }
 
-  componentDidMount() {
-    this.setState({'requestToCall' : false});
-  }
-
   handleYesClick (){
-    this.setState({'requestToCall' : true});
-    // console.log(this.state);
+        axios.get('/api/okayToCall/true')
+        .then((response) => {
+            if(!response.data.questionResponse){
+                console.log("Failed to load response data");
+            }
+            else{
+                var responseText = response.data.questionResponse;
+                var nextQuestionBubbleType = response.data.nextQuestionBubbleType;
+
+                this.props.addPanel(<ResponseBubble addPanel={this.props.addPanel} message={responseText} />);
+                this.props.addPanel(<QuestionBubble addPanel={this.props.addPanel} type={nextQuestionBubbleType} />);
+            }
+        })
+        .catch(function (response, err) {
+            console.log(err);
+        });
   }
 
   handleNoClick (){
-    this.setState({'requestToCall' : false});
-    // console.log(this.state);
+        axios.get('/api/okayToCall/false')
+        .then((response) => {
+            if(!response.data.questionResponse){
+                console.log("Failed to load response data");
+            }
+            else{
+                var responseText = response.data.questionResponse;
+                var nextQuestionBubbleType = response.data.nextQuestionBubbleType;
+
+                this.props.addPanel(<ResponseBubble addPanel={this.props.addPanel} message={responseText} />);
+                this.props.addPanel(<QuestionBubble addPanel={this.props.addPanel} type={nextQuestionBubbleType} />);
+            }
+        })
+        .catch(function (response, err) {
+            console.log(err);
+        });
   }
 
 }

@@ -4,7 +4,6 @@ var webpack = require('webpack');
 var config = require('./webpack.config.dev');
 var fs = require('fs');
 var request = require('request');
-var bodyParser = require('body-parser');
 
 var app = express();
 var compiler = webpack(config);
@@ -15,7 +14,6 @@ app.use(require('webpack-dev-middleware')(compiler, {
 }));
 
 app.use(require('webpack-hot-middleware')(compiler));
-app.use(bodyParser.json());
 
 app.all('/api/*', function(req, res) {
   console.log('http://localhost:4000' + req.originalUrl);

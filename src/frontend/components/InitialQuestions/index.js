@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { render } from 'react-dom';
 import ResponseBubble from '../ResponseBubble';
 import QuestionBubble from '../QuestionBubble';
 import axios from 'axios';
