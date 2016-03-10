@@ -54,6 +54,7 @@
     "koa-router": "^5.4.0",
     "koa-static": "^2.0.0",
     "lodash": "^3.10.1",
+    "node-persist": "0.0.8",
     "node-sass": "^3.4.2",
     "normalize.css": "^3.0.3",
     "phone-formatter": "0.0.2",

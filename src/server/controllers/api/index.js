@@ -4,6 +4,7 @@
 var Router = require('koa-router');
 var koaBody = require('koa-bodyparser');
 var phoneFormatter = require('phone-formatter');
+var storage = require('node-persist');
 var api = Router();
 
 /*******************
@@ -21,6 +22,7 @@ api.get('/property/:zpid', function* () {
 api.get('/initialResponse/:questionId', function* () {
     var response = {
         "questionId": this.params.questionId,
+        "sessionId": 
         "questionResponse": "I'm interested in touring this home.",
         "nextQuestionBubbleType": "DatePicker"
     }
