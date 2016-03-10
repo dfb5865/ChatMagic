@@ -4,6 +4,7 @@ import AskForNameAndNumber from '../AskForNameAndNumber';
 import AskToCall from '../AskToCall';
 import CheckList from '../CheckList';
 import SimilarHome from '../SimilarHome';
+import DatePicker from '../DatePicker';
 
 import './QuestionBubble.scss';
 
@@ -27,6 +28,7 @@ export default class QuestionBubble extends Component {
                   case "AskToCall": return <AskToCall addPanel={this.props.addPanel} />;
                   case "CheckList": return <CheckList addPanel={this.props.addPanel} />;
                   case "SimilarHome": return <SimilarHome addPanel={this.props.addPanel} />;
+                  case "DatePicker": return <DatePicker addPanel={this.props.addPanel} />;
                   default:      return <InitialQuestions addPanel={this.props.addPanel} />;
                 }
               })()}

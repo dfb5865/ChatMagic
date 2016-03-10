@@ -2,6 +2,7 @@
  * Modules
  *******************/
 var Router = require('koa-router');
+var koaBody = require('koa-bodyparser');
 var api = Router();
 
 /*******************
@@ -27,16 +28,9 @@ api.get('/initialResponse/:questionId', function* () {
 });
 
 api.post('/dateSelected/', function* () {
-    console.log(this.params);
+    console.log(this.request.body);
 
-    var daysAvailable = "ASAP";
-
-    var response = {
-        "chatBubbleType" : "requestToCall",
-        "questionResponse": daysAvailable + " works best for me."
-    }
-
-    this.body = response;
+    this.body = "hi";
 });
 
 

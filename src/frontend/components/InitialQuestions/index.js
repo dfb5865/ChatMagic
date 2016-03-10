@@ -16,7 +16,6 @@ var initialQuestions = [
 var initialState = {
                     initialQuestions: initialQuestions,
                     zpid: 1234567,
-                    selectedQuestion: null,
                     property: {}
                     };
 
@@ -43,9 +42,8 @@ export default class InitialQuestions extends Component {
     }
 
     questionSelected (selectedId) {
-        self.setState((state) => ({ selectedQuestion: selectedId }));
         axios.get('/api/initialResponse/' + selectedId)
-            .then(function (response) {
+            .then((response) => {
                 if(!response.data.questionResponse){
                     console.log("Failed to load question response data");
                 }
@@ -54,7 +52,7 @@ export default class InitialQuestions extends Component {
                     var nextQuestionBubbleType = response.data.nextQuestionBubbleType;
 
                     this.props.addPanel(<ResponseBubble addPanel={this.props.addPanel} message={responseText} />);
-                    
+                    this.props.addPanel(<QuestionBubble addPanel={this.props.addPanel} type={nextQuestionBubbleType} />);
                 }
             })
             .catch(function (response, err) {

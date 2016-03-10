@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 import Button from '../Button';
+import ResponseBubble from '../ResponseBubble';
+import QuestionBubble from '../QuestionBubble';
+import axios from 'axios';
 
 import './DatePicker.scss';
 
@@ -45,7 +48,23 @@ export default class DatePicker extends Component {
   }
 
   handleSubmit() {
-    console.log(availableDays);
+    axios.post('/api/dateSelected/', {"days": availableDays})
+    .then((response) => {
+        if(!response.data.questionResponse){
+            console.log("Failed to load question response data");
+        }
+        else{
+            var responseText = response.data.questionResponse;
+            var nextQuestionBubbleType = response.data.nextQuestionBubbleType;
+
+            this.props.addPanel(<ResponseBubble addPanel={this.props.addPanel} message={responseText} />);
+            this.props.addPanel(<QuestionBubble addPanel={this.props.addPanel} type={nextQuestionBubbleType} />);
+            
+        }
+    })
+    .catch(function (response, err) {
+        console.log(err);
+    });
   }
 
 }
