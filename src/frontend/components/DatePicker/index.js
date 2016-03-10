@@ -48,7 +48,8 @@ export default class DatePicker extends Component {
   }
 
   handleSubmit() {
-    axios.post('/api/dateSelected/', {"days": availableDays})
+    var joinedDays = availableDays.join(" and ");
+    axios.get('api/dateSelected/' + joinedDays)
     .then((response) => {
         if(!response.data.questionResponse){
             console.log("Failed to load question response data");

@@ -27,10 +27,14 @@ api.get('/initialResponse/:questionId', function* () {
     this.body = response;
 });
 
-api.post('/dateSelected/', function* () {
-    console.log(this.request.body);
+api.get('/dateSelected/:dayText', function* () {
 
-    this.body = "hi";
+    var response = {
+        "questionResponse": this.params.dayText + " work best for me.",
+        "nextQuestionBubbleType": "AskToCall"
+    }
+
+    this.body = response;
 });
 
 
