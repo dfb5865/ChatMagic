@@ -1,13 +1,77 @@
 @import "colors";
 
-.Specialbutton {
-  width: 100px;
-  height: 30px;
-  background-color: primary(lighterGray);
-  border-radius: 3px;
+.checkList {
+  font-size: 15px;
 }
 
-.Specialbutton.active {
-  background-color: primary(blue);
-  outline: 0;
+.bubble-text {
+  text-align: left !important;
+  padding: 15px;
+  color: primary(darkGray);
+}
+
+.div-with-bottom-border {
+  border-bottom: 1px solid #ecf0f1;
+}
+
+.checkList_padded-div {
+    height: 40px;
+    padding-left:20px;
+    vertical-align:middle;
+    line-height:40px;
+}
+
+.ok-text {
+  padding: 15px;
+  text-align: center !important;
+  color: primary(blue);
+}
+
+.input-box-style {
+  float: right;
+  width: 100px;
+  border: 0;
+  color: primary(darkGray);
+}
+
+.text-input {
+  border: none;
+}
+
+*:focus {
+    outline: none;
+}
+
+.checkListItem {
+    display:inline-block;
+    float:left;
+}
+
+.checkmark {
+    margin-top:5px;
+    display:inline-block;
+    width: 30px;
+    height:30px;
+    -ms-transform: rotate(45deg); /* IE 9 */
+    -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+    transform: rotate(45deg);
+    float:right;
+}
+
+.checkmark_stem {
+    position: absolute;
+    width:4px;
+    height:17px;
+    background-color: primary(blue);
+    left:11px;
+    top:6px;
+}
+
+.checkmark_kick {
+position: absolute;
+    width: 6px;
+    height: 4px;
+    background-color: #3498db;
+    left: 6px;
+    top: 19px;
 }

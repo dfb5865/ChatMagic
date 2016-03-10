@@ -86,5 +86,22 @@ api.post('/nameAndEmail/', function* () {
     this.body = response;
 });
 
+api.post('/checkList/', function* () {
+    var preapproved = this.request.body.preapproved;
+    var agent = this.request.body.workingWithAgent;
+    var selling = this.request.body.selling;
+
+    var preapprovedText = preapproved ? "I'm pre-approved for a loan" : "I'm not pre-approved for a loan";
+    var agentText = agent ? "I'm already working with an agent" : "I'm not working with an agent";
+    var sellingText = selling ? "I'm selling a home." : "I'm not selling a home.";
+
+    var response = {
+        "questionResponse":  preapprovedText + ",  " + agentText + ", and " + sellingText,
+        "nextQuestionBubbleType": "SimilarHome"
+    }
+
+    this.body = response;
+});
+
 
 module.exports = api;
