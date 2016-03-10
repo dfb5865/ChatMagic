@@ -53,7 +53,7 @@ export default class InitialQuestions extends Component {
                     var responseText = response.data.questionResponse;
                     var nextQuestionBubbleType = response.data.nextQuestionBubbleType;
 
-                    render(<ResponseBubble message={responseText}/>, document.getElementById('root'));
+                    this.props.addPanel(<ResponseBubble addPanel={this.props.addPanel} message={responseText} />);
                     
                 }
             })

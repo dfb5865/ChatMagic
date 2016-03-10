@@ -22,12 +22,12 @@ export default class QuestionBubble extends Component {
             <div className="bubble-q">
               {(() => {
                 switch (this.props.type) {
-                  case "InitialQuestions":   return <InitialQuestions />;
-                  case "AskForNameAndNumber": return <AskForNameAndNumber />;
-                  case "AskToCall": return <AskToCall />;
-                  case "CheckList": return <CheckList />;
-                  case "SimilarHome": return <SimilarHome />;
-                  default:      return <InitialQuestions />;
+                  case "InitialQuestions":   return <InitialQuestions addPanel={this.props.addPanel} />;
+                  case "AskForNameAndNumber": return <AskForNameAndNumber addPanel={this.props.addPanel} />;
+                  case "AskToCall": return <AskToCall addPanel={this.props.addPanel} />;
+                  case "CheckList": return <CheckList addPanel={this.props.addPanel} />;
+                  case "SimilarHome": return <SimilarHome addPanel={this.props.addPanel} />;
+                  default:      return <InitialQuestions addPanel={this.props.addPanel} />;
                 }
               })()}
             </div>
