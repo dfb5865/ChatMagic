@@ -6,6 +6,7 @@ import AskToCall from '../AskToCall';
 import CheckList from '../CheckList';
 import SimilarHome from '../SimilarHome';
 import DatePicker from '../DatePicker';
+import ThreeBounceAnimation from '../ThreeBounceAnimation';
 
 import './QuestionBubble.scss';
 
