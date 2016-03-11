@@ -13,14 +13,23 @@ import './QuestionBubble.scss';
 export default class QuestionBubble extends Component {
   constructor(props) {
     super(props);
+    this.state = {loading: true};
   }
 
   componentDidMount() {
-    ReactDom.findDOMNode(this).scrollIntoView();
+    
+    setTimeout(function(){ this.setState({loading: false }); ReactDom.findDOMNode(this).scrollIntoView(); }.bind(this), 1000);
   }
 
   render() {
     return(
+        this.state.loading 
+          ?
+          <div className='sk-three-bounce'>
+            <div className="sk-child sk-bounce1"></div>
+            <div className="sk-child sk-bounce2"></div>
+            <div className="sk-child sk-bounce3"></div>
+          </div> :
           <div className="bubble-container">
             <div className="icon">Z</div>
             <div className="bubble-q">
@@ -38,6 +47,7 @@ export default class QuestionBubble extends Component {
               })()}
             </div>
           </div>
+      
       )
   }
 }
