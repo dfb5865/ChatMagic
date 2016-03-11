@@ -1,1 +1,53 @@
 @import "colors";
+
+.similar-home {
+  padding-top: 15px;
+}
+
+.similar-home-bubble-text {
+  text-align: left !important;
+  color: primary(gray);
+  font-size: 15px;
+  padding-left: 15px;
+}
+
+.similar-home-padded-div {
+  padding-bottom: 15px;
+}
+
+.similar-home-image-container {
+  padding: 0 !important;
+}
+
+
+.similar-home-image {
+  max-width: 260px;
+}
+
+.similar-home-summary {
+  padding: 15px;
+}
+
+.similar-home-summary-link {
+  text-decoration: none;
+  color: primary(blue);
+}
+
+.similar-home-summary-line1 {
+  font-size: 17px;
+}
+
+.similar-home-summary-line2 {
+  font-size: 15px;
+}
+
+.middle-dot {
+  font-size: 18px;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+.similar-home-summary-text {
+  font-size: 12px;
+  color: primary(gray);
+}
