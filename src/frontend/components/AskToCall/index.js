@@ -18,10 +18,10 @@ export default class AskToCall extends Component {
         <div className='separator-ask-to-call'></div>
 
         <div>
-          <div className='float-left-yes' onClick={this.handleYesClick.bind(this)}>
+          <div className='float-left-yes' onClick={this.handleClick.bind(this,true)}>
             Yes
           </div>
-          <div className='float-right-no' onClick={this.handleNoClick.bind(this)}>
+          <div className='float-right-no' onClick={this.handleClick.bind(this,false)}>
             No
           </div>
         </div>
@@ -29,8 +29,8 @@ export default class AskToCall extends Component {
     );
   }
 
-  handleYesClick (){
-        axios.get('/api/okayToCall/true')
+  handleClick (trueValue){
+        axios.post('/api/okayToCall/', {trueValue: trueValue, sessionId: this.props.sessionId})
         .then((response) => {
             if(!response.data.questionResponse){
                 console.log("Failed to load response data");
@@ -40,26 +40,7 @@ export default class AskToCall extends Component {
                 var nextQuestionBubbleType = response.data.nextQuestionBubbleType;
 
                 this.props.addPanel(<ResponseBubble addPanel={this.props.addPanel} message={responseText} />);
-                this.props.addPanel(<QuestionBubble addPanel={this.props.addPanel} type={nextQuestionBubbleType} />);
-            }
-        })
-        .catch(function (response, err) {
-            console.log(err);
-        });
-  }
-
-  handleNoClick (){
-        axios.get('/api/okayToCall/false')
-        .then((response) => {
-            if(!response.data.questionResponse){
-                console.log("Failed to load response data");
-            }
-            else{
-                var responseText = response.data.questionResponse;
-                var nextQuestionBubbleType = response.data.nextQuestionBubbleType;
-
-                this.props.addPanel(<ResponseBubble addPanel={this.props.addPanel} message={responseText} />);
-                this.props.addPanel(<QuestionBubble addPanel={this.props.addPanel} type={nextQuestionBubbleType} />);
+                this.props.addPanel(<QuestionBubble sessionId={this.props.sessionId} addPanel={this.props.addPanel} type={nextQuestionBubbleType} />);
             }
         })
         .catch(function (response, err) {

@@ -12,32 +12,12 @@ var initialQuestions = [
     {"questionId" : 4, "questionText": "What other homes are like this one?"}
 ];
 
-var initialState = {
-                    initialQuestions: initialQuestions,
-                    zpid: 1234567,
-                    property: {}
-                    };
+var initialState = {initialQuestions: initialQuestions};
 
 export default class InitialQuestions extends Component {
     constructor(props) {
         super(props);
         this.state = initialState;
-    }
-
-    componentDidMount () {
-        var self = this;
-        axios.get('/api/property/' + this.state.zpid)
-            .then(function (response) {
-                if(!response.data.property){
-                    console.log("Failed to load property data");
-                }
-                else{
-                    self.setState((state) => ({ property: response.data.property }));
-                }
-            })
-            .catch(function (response, err) {
-                console.log("Bad Response from server when loading property data");
-            });
     }
 
     questionSelected (selectedId) {
@@ -49,9 +29,10 @@ export default class InitialQuestions extends Component {
                 else{
                     var responseText = response.data.questionResponse;
                     var nextQuestionBubbleType = response.data.nextQuestionBubbleType;
+                    var sessionId = response.data.sessionId;
 
                     this.props.addPanel(<ResponseBubble addPanel={this.props.addPanel} message={responseText} />);
-                    this.props.addPanel(<QuestionBubble addPanel={this.props.addPanel} type={nextQuestionBubbleType} />);
+                    this.props.addPanel(<QuestionBubble sessionId={sessionId} addPanel={this.props.addPanel} type={nextQuestionBubbleType} />);
                 }
             })
             .catch(function (response, err) {

@@ -13,13 +13,11 @@ export default class Button extends Component {
 
   componentDidMount() {
     this.setState({change: this.props.change});
-    console.log(this.props.change);
   }
 
   click() {
     this.setState({'active': !this.state.active});
     this.state.change(this.props.name, this.state.active);
-    console.log(this.state);
   }
 
   render() {

@@ -26,14 +26,14 @@ export default class QuestionBubble extends Component {
             <div className="bubble-q">
               {(() => {
                 switch (this.props.type) {
-                  case "InitialQuestions":   return <InitialQuestions addPanel={this.props.addPanel} />;
-                  case "AskForNameAndNumber": return <AskForNameAndNumber addPanel={this.props.addPanel} />;
-                  case "AskForNameAndEmail": return <AskForNameAndEmail addPanel={this.props.addPanel} />;
-                  case "AskToCall": return <AskToCall addPanel={this.props.addPanel} />;
-                  case "CheckList": return <CheckList addPanel={this.props.addPanel} />;
-                  case "SimilarHome": return <SimilarHome addPanel={this.props.addPanel} />;
-                  case "DatePicker": return <DatePicker addPanel={this.props.addPanel} />;
-                  default:      return <InitialQuestions addPanel={this.props.addPanel} />;
+                  case "InitialQuestions":   return <InitialQuestions sessionId={this.props.sessionId} addPanel={this.props.addPanel} />;
+                  case "AskForNameAndNumber": return <AskForNameAndNumber sessionId={this.props.sessionId} addPanel={this.props.addPanel} />;
+                  case "AskForNameAndEmail": return <AskForNameAndEmail sessionId={this.props.sessionId} addPanel={this.props.addPanel} />;
+                  case "AskToCall": return <AskToCall sessionId={this.props.sessionId} addPanel={this.props.addPanel} />;
+                  case "CheckList": return <CheckList sessionId={this.props.sessionId} addPanel={this.props.addPanel} />;
+                  case "SimilarHome": return <SimilarHome sessionId={this.props.sessionId} addPanel={this.props.addPanel} />;
+                  case "DatePicker": return <DatePicker sessionId={this.props.sessionId} addPanel={this.props.addPanel} />;
+                  default:      return <InitialQuestions sessionId={this.props.sessionId} addPanel={this.props.addPanel} />;
                 }
               })()}
             </div>

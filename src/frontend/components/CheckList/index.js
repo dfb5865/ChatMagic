@@ -27,7 +27,7 @@ export default class CheckList extends Component {
     }
 
     handleOkClick() {
-      axios.post('/api/checkList/', {preapproved: this.state.preapproved, workingWithAgent: this.state.workingWithAgent, selling: this.state.selling})
+      axios.post('/api/checkList/', {preapproved: this.state.preapproved, workingWithAgent: this.state.workingWithAgent, selling: this.state.selling, sessionId: this.props.sessionId})
       .then((response) => {
           if(!response.data.questionResponse){
               console.log("Failed to load response data");
@@ -37,7 +37,7 @@ export default class CheckList extends Component {
               var nextQuestionBubbleType = response.data.nextQuestionBubbleType;
 
               this.props.addPanel(<ResponseBubble addPanel={this.props.addPanel} message={responseText} />);
-              this.props.addPanel(<QuestionBubble addPanel={this.props.addPanel} type={nextQuestionBubbleType} />);
+              this.props.addPanel(<QuestionBubble sessionId={this.props.sessionId} addPanel={this.props.addPanel} type={nextQuestionBubbleType} />);
           }
       })
       .catch(function (response, err) {

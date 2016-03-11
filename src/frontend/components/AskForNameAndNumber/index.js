@@ -51,7 +51,7 @@ export default class AskForNameAndNumber extends Component {
       var name = this.state.name;
       var number = this.state.number;
 
-      axios.post('/api/nameAndNumber/', {name: name, number: number})
+      axios.post('/api/nameAndNumber/', {name: name, number: number, sessionId: this.props.sessionId})
       .then((response) => {
           if(!response.data.questionResponse){
               console.log("Failed to load response data");
@@ -61,7 +61,7 @@ export default class AskForNameAndNumber extends Component {
               var nextQuestionBubbleType = response.data.nextQuestionBubbleType;
 
               this.props.addPanel(<ResponseBubble addPanel={this.props.addPanel} message={responseText} />);
-              this.props.addPanel(<QuestionBubble addPanel={this.props.addPanel} type={nextQuestionBubbleType} />);
+              this.props.addPanel(<QuestionBubble sessionId={this.props.sessionId} addPanel={this.props.addPanel} type={nextQuestionBubbleType} />);
           }
       })
       .catch(function (response, err) {

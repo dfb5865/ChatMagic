@@ -66,7 +66,7 @@ export default class DatePicker extends Component {
   }
 
   handleSubmit() {
-    axios.post('api/dateSelected/', {"days": availableDays})
+    axios.post('api/dateSelected/', {"days": availableDays, sessionId: this.props.sessionId})
     .then((response) => {
         if(!response.data.questionResponse){
             console.log("Failed to load question response data");
@@ -76,7 +76,7 @@ export default class DatePicker extends Component {
             var nextQuestionBubbleType = response.data.nextQuestionBubbleType;
 
             this.props.addPanel(<ResponseBubble addPanel={this.props.addPanel} message={responseText} />);
-            this.props.addPanel(<QuestionBubble addPanel={this.props.addPanel} type={nextQuestionBubbleType} />);
+            this.props.addPanel(<QuestionBubble sessionId={this.props.sessionId} addPanel={this.props.addPanel} type={nextQuestionBubbleType} />);
 
         }
     })
