@@ -39,7 +39,7 @@ api.post('/dateSelected/', function* () {
     var daysText = days.join(" and ");
 
     var response = {
-        "questionResponse":  "<b>" daysText + " work best for me.",
+        "questionResponse":  daysText + " work best for me.",
         "nextQuestionBubbleType": "AskToCall"
     }
 

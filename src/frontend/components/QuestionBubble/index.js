@@ -23,17 +23,18 @@ export default class QuestionBubble extends Component {
 
   render() {
     return(
-        this.state.loading 
-          ?
-          <div className='sk-three-bounce'>
-            <div className="sk-child sk-bounce1"></div>
-            <div className="sk-child sk-bounce2"></div>
-            <div className="sk-child sk-bounce3"></div>
-          </div> :
+        
           <div className="bubble-container">
             <div className="icon">Z</div>
             <div className="bubble-q">
-              {(() => {
+              {this.state.loading 
+                ?
+              <div className='sk-three-bounce'>
+                <div className="sk-child sk-bounce1"></div>
+                <div className="sk-child sk-bounce2"></div>
+                <div className="sk-child sk-bounce3"></div>
+              </div> :
+              (() => {
                 switch (this.props.type) {
                   case "InitialQuestions":   return <InitialQuestions sessionId={this.props.sessionId} addPanel={this.props.addPanel} />;
                   case "AskForNameAndNumber": return <AskForNameAndNumber sessionId={this.props.sessionId} addPanel={this.props.addPanel} />;
