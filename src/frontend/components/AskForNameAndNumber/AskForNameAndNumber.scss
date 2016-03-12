@@ -24,15 +24,9 @@
   color: primary(blue);
 }
 
-.input-box-style {
-  float: right;
-  width: 100px;
-  border: 0;
-  color: primary(darkGray);
-}
-
 .text-input {
   border: none;
+  color: primary(gray);
 }
 
 *:focus {

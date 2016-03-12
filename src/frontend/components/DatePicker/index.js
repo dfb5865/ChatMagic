@@ -10,6 +10,10 @@ var availableDays = [];
 
 export default class DatePicker extends Component {
 
+  constructor(props) {
+      super(props);
+  }
+
   render() {
     return  (
       <div className='date-picker'>
@@ -75,9 +79,8 @@ export default class DatePicker extends Component {
             var responseText = response.data.questionResponse;
             var nextQuestionBubbleType = response.data.nextQuestionBubbleType;
 
-            this.props.addPanel(<ResponseBubble addPanel={this.props.addPanel} message={responseText} />);
-            this.props.addPanel(<QuestionBubble sessionId={this.props.sessionId} addPanel={this.props.addPanel} type={nextQuestionBubbleType} />);
-
+            this.props.addPanel(<ResponseBubble addPanel={this.props.addPanel} message={responseText} scrollToBottom={this.props.scrollToBottom} />);
+            this.props.addPanel(<QuestionBubble sessionId={this.props.sessionId} addPanel={this.props.addPanel} type={nextQuestionBubbleType} scrollToBottom={this.props.scrollToBottom} />);
         }
     })
     .catch(function (response, err) {

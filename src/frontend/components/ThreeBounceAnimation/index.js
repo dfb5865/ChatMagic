@@ -1,8 +1,4 @@
 import React, {Component} from 'react';
-import ResponseBubble from '../ResponseBubble';
-import QuestionBubble from '../QuestionBubble';
-import axios from 'axios';
-
 import './ThreeBounceAnimation.scss';
 
 export default class ThreeBounceAnimation extends Component {

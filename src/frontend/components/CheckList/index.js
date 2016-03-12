@@ -36,8 +36,8 @@ export default class CheckList extends Component {
               var responseText = response.data.questionResponse;
               var nextQuestionBubbleType = response.data.nextQuestionBubbleType;
 
-              this.props.addPanel(<ResponseBubble addPanel={this.props.addPanel} message={responseText} />);
-              this.props.addPanel(<QuestionBubble sessionId={this.props.sessionId} addPanel={this.props.addPanel} type={nextQuestionBubbleType} />);
+              this.props.addPanel(<ResponseBubble addPanel={this.props.addPanel} message={responseText} scrollToBottom={this.props.scrollToBottom} />);
+              this.props.addPanel(<QuestionBubble sessionId={this.props.sessionId} addPanel={this.props.addPanel} type={nextQuestionBubbleType} scrollToBottom={this.props.scrollToBottom} />);
           }
       })
       .catch(function (response, err) {
@@ -58,7 +58,7 @@ export default class CheckList extends Component {
                 <span className="checkmark">
                     <div className="checkmark_stem"></div>
                     <div className="checkmark_kick"></div>
-                </span> 
+                </span>
                 : null
             }
           </div>
@@ -69,7 +69,7 @@ export default class CheckList extends Component {
                 <span className="checkmark">
                     <div className="checkmark_stem"></div>
                     <div className="checkmark_kick"></div>
-                </span> 
+                </span>
                 : null
             }
           </div>
@@ -80,7 +80,7 @@ export default class CheckList extends Component {
                 <span className="checkmark">
                     <div className="checkmark_stem"></div>
                     <div className="checkmark_kick"></div>
-                </span> 
+                </span>
                 : null
             }
           </div>

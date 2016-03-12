@@ -16,39 +16,49 @@ export default class QuestionBubble extends Component {
     this.state = {loading: true};
   }
 
+  componentDidUpdate() {
+    this.props.scrollToBottom();
+  }
+
   componentDidMount() {
-    
-    setTimeout(function(){ this.setState({loading: false }); ReactDom.findDOMNode(this).scrollIntoView(); }.bind(this), 1000);
+    ReactDom.findDOMNode(this).scrollIntoView();
+    this.props.scrollToBottom();
+
+    setTimeout(function(){
+      this.setState({loading: false });
+      ReactDom.findDOMNode(this).scrollIntoView();
+    }.bind(this), 1000);
   }
 
   render() {
     return(
-        
-          <div className="bubble-container">
-            <div className="icon">Z</div>
-            <div className="bubble-q">
-              {this.state.loading 
-                ?
-              <div className='sk-three-bounce'>
-                <div className="sk-child sk-bounce1"></div>
-                <div className="sk-child sk-bounce2"></div>
-                <div className="sk-child sk-bounce3"></div>
-              </div> :
-              (() => {
+      <div className="bubble-container">
+        <div className="icon">
+          <img src='https://s3.amazonaws.com/uploads.hipchat.com/8461/1627232/HSqXYs4aF4EGr00/zef_no_outline%402x.png' className='smiley-icon'/>
+        </div>
+        <div className="bubble-q">
+          {this.state.loading
+            ?
+          <div className='sk-three-bounce'>
+            <div className="sk-child sk-bounce1"></div>
+            <div className="sk-child sk-bounce2"></div>
+            <div className="sk-child sk-bounce3"></div>
+          </div> :
+          (() => {
                 switch (this.props.type) {
-                  case "InitialQuestions":   return <InitialQuestions sessionId={this.props.sessionId} addPanel={this.props.addPanel} />;
-                  case "AskForNameAndNumber": return <AskForNameAndNumber sessionId={this.props.sessionId} addPanel={this.props.addPanel} />;
-                  case "AskForNameAndEmail": return <AskForNameAndEmail sessionId={this.props.sessionId} addPanel={this.props.addPanel} />;
-                  case "AskToCall": return <AskToCall sessionId={this.props.sessionId} addPanel={this.props.addPanel} />;
-                  case "CheckList": return <CheckList sessionId={this.props.sessionId} addPanel={this.props.addPanel} />;
-                  case "SimilarHome": return <SimilarHome sessionId={this.props.sessionId} addPanel={this.props.addPanel} />;
-                  case "DatePicker": return <DatePicker sessionId={this.props.sessionId} addPanel={this.props.addPanel} />;
-                  default:      return <InitialQuestions sessionId={this.props.sessionId} addPanel={this.props.addPanel} />;
+                  case "InitialQuestions":   return <InitialQuestions sessionId={this.props.sessionId} addPanel={this.props.addPanel} scrollToBottom={this.props.scrollToBottom}/>;
+                  case "AskForNameAndNumber": return <AskForNameAndNumber sessionId={this.props.sessionId} addPanel={this.props.addPanel} scrollToBottom={this.props.scrollToBottom} />;
+                  case "AskForNameAndEmail": return <AskForNameAndEmail sessionId={this.props.sessionId} addPanel={this.props.addPanel}  scrollToBottom={this.props.scrollToBottom}/>;
+                  case "AskToCall": return <AskToCall sessionId={this.props.sessionId} addPanel={this.props.addPanel} scrollToBottom={this.props.scrollToBottom} />;
+                  case "CheckList": return <CheckList sessionId={this.props.sessionId} addPanel={this.props.addPanel} scrollToBottom={this.props.scrollToBottom} />;
+                  case "SimilarHome": return <SimilarHome sessionId={this.props.sessionId} addPanel={this.props.addPanel} scrollToBottom={this.props.scrollToBottom} />;
+                  case "DatePicker": return <DatePicker sessionId={this.props.sessionId} addPanel={this.props.addPanel} scrollToBottom={this.props.scrollToBottom} />;
+                  default:      return <InitialQuestions sessionId={this.props.sessionId} addPanel={this.props.addPanel} scrollToBottom={this.props.scrollToBottom} />;
                 }
               })()}
             </div>
           </div>
-      
+
       )
   }
 }

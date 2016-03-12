@@ -31,8 +31,8 @@ export default class InitialQuestions extends Component {
                     var nextQuestionBubbleType = response.data.nextQuestionBubbleType;
                     var sessionId = response.data.sessionId;
 
-                    this.props.addPanel(<ResponseBubble addPanel={this.props.addPanel} message={responseText} />);
-                    this.props.addPanel(<QuestionBubble sessionId={sessionId} addPanel={this.props.addPanel} type={nextQuestionBubbleType} />);
+                    this.props.addPanel(<ResponseBubble addPanel={this.props.addPanel} message={responseText} scrollToBottom={this.props.scrollToBottom} />);
+                    this.props.addPanel(<QuestionBubble sessionId={sessionId} addPanel={this.props.addPanel} type={nextQuestionBubbleType} scrollToBottom={this.props.scrollToBottom}/>);
                 }
             })
             .catch(function (response, err) {
@@ -42,7 +42,7 @@ export default class InitialQuestions extends Component {
 
     render() {
         self = this;
-        return  (     
+        return  (
           <div className='bubble'>
             <div className='bubble-text'>
                 Hi, Beth! What questions do you have about this home?
