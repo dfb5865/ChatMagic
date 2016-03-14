@@ -6,7 +6,7 @@
     "clean": "rimraf ./src/server/public/assets/*",
     "build": "npm run clean && npm run build:webpack",
     "build:webpack": "NODE_ENV=production webpack --config webpack.config.prod.js",
-    "start": "NODE_ENV=development npm run clean && npm run dev",
+    "start": "NODE_ENV=production npm run build && node src/server/server.js",
     "dev": "BABEL_ENV=development NODE_ENV=development node devServer.js",
     "api": "nodemon --watch src/server src/server/server.js",
     "lint": "eslint src/frontend",
