@@ -9,7 +9,8 @@
     "start": "NODE_ENV=development npm run clean && npm run dev",
     "dev": "BABEL_ENV=development NODE_ENV=development node devServer.js",
     "api": "nodemon --watch src/server src/server/server.js",
-    "lint": "eslint src/frontend"
+    "lint": "eslint src/frontend",
+    "deploy": "npm run build && npm run api"
   },
   "repository": {
     "type": "git",

@@ -8,6 +8,6 @@ cd ChatMagic
 
 npm install
 
-npm run api
-
 npm run build
+
+npm run api

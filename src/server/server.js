@@ -7,7 +7,7 @@ var koaBody = require('koa-bodyparser');
 var mount = require('koa-mount');
 var api = require('./controllers/api');
 var ENV = process.env.NODE_ENV;
-var PORT = 4000;
+var PORT = 8080;
 var app = koa();
 
 app.use(logger());
