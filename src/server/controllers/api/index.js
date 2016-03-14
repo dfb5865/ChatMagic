@@ -147,14 +147,22 @@ api.post('/checkList/', function* () {
             }
         }
 
-        request.post(
-            {url:'http://concierge-dev.oc-dev.zillow.net:16000/api/v1/leads/', body: leadPayload},  
+        var options = {
+            url: 'http://concierge-dev.oc-dev.zillow.net:16000/api/v1/leads/',
+            method: 'POST',
+            body: JSON.stringify(leadPayload)
+        }
+
+        /*
+        request(
+            options,  
             function (error, response, body) {
               if (!error && response) {
                 console.log(body);
               }
             }
         );
+        */
     }
 
     var preapprovedText = preapproved ? "I'm pre-approved for a loan" : "I'm not pre-approved for a loan";
